@@ -46,6 +46,7 @@ def load_files_with_values(folder):
     """Searches the specified folder for CSV files with a list of values. The file name matches the table name.
     Returns a dictionary with nested lists, where key is the table name, value is a list of table values."""
     new_dict_files_values = {}
+
     if not os.path.exists(folder_with_values_files):
         print('Error: Folder not found!')
     else:

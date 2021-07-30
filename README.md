@@ -4,8 +4,34 @@
 * ### Generates ready-made database queries to add large numbers of values to tables. Queries with values are saved to files like <TABLENAME_new.csv>.
 
 ## For example. 
-* The <folder_with_values_files> contains files named <TABLE_NAME>.CSV containing a list of values to be INSERTED 
-into the database table. Below is an example of the contents of the file.
+* Search for *.sql and *.csv files. SQL files containing a table structure, CSV files containing a list of values to be INSERTED 
+into the database table. Below is an example.
+  
+        Script_Create_Tables_1.sql:
+        
+        CREATE TABLE EMPLOYEES (
+                                EMP_ID CHAR(9) NOT NULL, 
+                                F_NAME VARCHAR(15) NOT NULL,
+                                L_NAME VARCHAR(15) NOT NULL,
+                                SSN CHAR(9),
+                                B_DATE DATE,
+                                SEX CHAR,
+                                ADDRESS VARCHAR(30),
+                                JOB_ID CHAR(9),
+                                SALARY DECIMAL(10,2),
+                                MANAGER_ID CHAR(9),
+                                DEP_ID CHAR(9) NOT NULL,
+                                PRIMARY KEY (EMP_ID));
+  
+        Script_Create_Tables_2.sql:
+  
+        CREATE TABLE JOBS (
+                            JOB_IDENT CHAR(9) NOT NULL, 
+                            JOB_TITLE VARCHAR(15) ,
+                            MIN_SALARY DECIMAL(10,2),
+                            MAX_SALARY DECIMAL(10,2),
+                            PRIMARY KEY (JOB_IDENT));
+
 
         Employees.csv:
   
@@ -26,37 +52,11 @@ into the database table. Below is an example of the contents of the file.
         660,'Jr. Designer',60000,70000,
         234,'Sr. Designer',70000,90000,
         220,'Sr. Designer',70000,90000
-
-
-* <table_structure_file> is a script file that creates a database table with the specified 
-columns. Below is an example of the contents of the file.
-
-        Script_Create_Tables.sql:
         
-        CREATE TABLE EMPLOYEES (
-                                EMP_ID CHAR(9) NOT NULL, 
-                                F_NAME VARCHAR(15) NOT NULL,
-                                L_NAME VARCHAR(15) NOT NULL,
-                                SSN CHAR(9),
-                                B_DATE DATE,
-                                SEX CHAR,
-                                ADDRESS VARCHAR(30),
-                                JOB_ID CHAR(9),
-                                SALARY DECIMAL(10,2),
-                                MANAGER_ID CHAR(9),
-                                DEP_ID CHAR(9) NOT NULL,
-                                PRIMARY KEY (EMP_ID));
 
-        CREATE TABLE JOBS (
-                            JOB_IDENT CHAR(9) NOT NULL, 
-                            JOB_TITLE VARCHAR(15) ,
-                            MIN_SALARY DECIMAL(10,2),
-                            MAX_SALARY DECIMAL(10,2),
-                            PRIMARY KEY (JOB_IDENT));
-
-* The program finds the structure of tables (table names, column names), then finds all files with values. 
-Processes values to match the correct format. Generates files <TABLE_NAME_new.csv> that query to 
-database to INSERT values into the table.
+* Looks in the SQL files for the name of the table and columns. Looks for data for tables in CSV files. Then the data is converted in the correct format. 
+Next, the program generates files with ready-made queries for insertion into tables. 
+If there are no SQL files, then the program generates only data files.
   
         Employees_New.csv
   
