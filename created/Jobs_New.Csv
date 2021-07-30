@@ -10,4 +10,4 @@ VALUES
 (650, 'Jr. Designer', 60000, 70000),
 (660, 'Jr. Designer', 60000, 70000),
 (234, 'Sr. Designer', 70000, 90000),
-(220, 'Sr. Designer', 70000, 90000),
+(220, 'Sr. Designer', 70000, 90000);

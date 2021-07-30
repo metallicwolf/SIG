@@ -101,7 +101,10 @@ def generate_file():
             with open('created/' + generated_file.title(), 'w') as File:
                 File.write('INSERT INTO ' + table_name.upper() + '\n' + table_columns + '\nVALUES\n')
                 for row_list in table_values[table_name]:
-                    File.write('(' + ', '.join(row_list) + ')' + ',\n')
+                    if row_list == table_values[table_name][-1]:
+                        File.write('(' + ', '.join(row_list) + ')' + ';')
+                    else:
+                        File.write('(' + ', '.join(row_list) + ')' + ',\n')
     print('OK. See files in folder "created".')
 
 
