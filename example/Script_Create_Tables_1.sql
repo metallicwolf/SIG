@@ -7,7 +7,7 @@ CREATE TABLE JOB_HISTORY (
  
  CREATE TABLE JOBS (
                             JOB_IDENT CHAR(9) NOT NULL, 
-                            JOB_TITLE VARCHAR(15) ,
+                            JOB_TITLE VARCHAR(30) ,
                             MIN_SALARY DECIMAL(10,2),
                             MAX_SALARY DECIMAL(10,2),
                             PRIMARY KEY (JOB_IDENT));

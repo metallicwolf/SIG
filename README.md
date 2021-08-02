@@ -1,7 +1,7 @@
 # SQL INSERT generator (SIG)
 * ### The program finds the structure of tables (table names, column names), then finds all files with values. 
 * ### Processes values to match the correct format. 
-* ### Generates ready-made database queries to add large numbers of values to tables. Queries with values are saved to files like <TABLENAME_new.csv>.
+* ### Generates ready-made database queries to add large numbers of values to tables. Queries with values are saved to files like <TABLENAME_new.sql>.
 
 ## For example. 
 * Search for *.sql and *.csv files. SQL files containing a table structure, CSV files containing a list of values to be INSERTED 
@@ -54,11 +54,12 @@ into the database table. Below is an example.
         220,'Sr. Designer',70000,90000
         
 
-* Looks in the SQL files for the name of the table and columns. Looks for data for tables in CSV files. Then the data is converted in the correct format. 
-Next, the program generates files with ready-made queries for insertion into tables. 
-If there are no SQL files, then the program generates only data files.
+* Looks in the SQL files for the name of the table and columns. Looks for data for tables in CSV files. 
+  Then the data is converted in the correct format. 
+  Next, the program generates files with ready-made queries for insertion into tables. 
+  If there are no SQL files, then the program generates only data files.
   
-        Employees_New.csv
+        Employees_New.sql
   
         INSERT INTO EMPLOYEES
         (EMP_ID, F_NAME, L_NAME, SSN, B_DATE, SEX, ADDRESS, JOB_ID, SALARY, MANAGER_ID, DEP_ID)
@@ -74,7 +75,7 @@ If there are no SQL files, then the program generates only data files.
         ('E1009', 'Andrea', 'Jones', 123414, '1990-07-09', 'F', '120 Fall Creek, Gary,IL', 234, 70000, 30003, 7),
         ('E1010', 'Ann', 'Jacob', 123415, '1982-03-30', 'F', '111 Britany Springs,Elgin,IL', 220, 70000, 30004, 5);
 
-        Jobs_new.csv
+        Jobs_new.sql
 
         INSERT INTO JOBS
         (JOB_IDENT, JOB_TITLE, MIN_SALARY, MAX_SALARY)

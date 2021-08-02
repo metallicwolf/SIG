@@ -4,4 +4,4 @@ VALUES
 (2, 'Architect Group', 30001, 'L0001'),
 (5, 'Software Group', 30002, 'L0002'),
 (7, 'Design Team', 30003, 'L0003'),
-(5, 'Software Group', 30004, 'L0004');
+(3, 'Software Group', 30004, 'L0004');
