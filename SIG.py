@@ -43,7 +43,7 @@ def get_table_name(line):
     start = line.upper().find('TABLE') + 6
     end = line[start:].find(' ', 2) + start
     name = line[start:end]
-    return name.strip()
+    return name.strip().lower()
 
 
 def line_check(new_line: str):
@@ -96,7 +96,7 @@ def load_tables(folder, sql_files_list):
                     if len(field) > 1:
                         field = field[:field.find(' ')]
                         if field != 'PRIMARY':
-                            tables_name_and_fields[table_name].append(field)
+                            tables_name_and_fields[table_name].append(field.lower())
 
                     # adding to full tables with chech end of the lines
                     if len(field) > 1:
@@ -118,7 +118,7 @@ def load_values(folder, csv_files_list):
 
     for filename in csv_files_list:
         # get table name from filename without endswith
-        table_name = filename[:-4].upper()
+        table_name = filename[:-4].lower()
 
         # add key TABLENAME and empty list
         new_dict_files_values[table_name] = []
@@ -171,7 +171,7 @@ def generate_full_query_files():
             table_columns = '(' + ', '.join(tab_fields[table_name]) + ')'
             generated_file_name = table_name.title() + '_new.sql'
             with open('created/' + generated_file_name, 'w') as File:
-                File.write('INSERT INTO ' + table_name.upper() + '\n' + table_columns + '\nVALUES\n')
+                File.write('INSERT INTO ' + table_name + '\n' + table_columns + '\nVALUES\n')
                 for row_list in values[table_name]:
                     if row_list == values[table_name][-1]:
                         File.write('(' + ', '.join(row_list) + ')' + ';')
